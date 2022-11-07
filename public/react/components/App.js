@@ -9,8 +9,14 @@ import apiURL from '../api';
 
 export const App = () => {
 
-	const [sauces, setSauces] = useState([]);
+	// const [sauces, setSauces] = useState([]);
 	const [items, setItems] = useState([]);
+	const [isAddingItem, setIsAddingItem] = useState(false);
+	const  [title,setTitle] = useState("");
+	const  [price,setPrice] = useState(0);
+	const  [description,setDescription] = useState("");
+	const  [category,setCategory] = useState("");
+	const  [image,setImage] = useState("");
 
 	async function fetchSauces(){
 		try {
@@ -34,6 +40,24 @@ export const App = () => {
 		}
 	}
 
+	const handleSubmit = async (e) => {
+		console.log(e);
+		const response = await fetch(`${apiURL}/items`, {
+		  method: "POST",
+		  headers: {
+			"Content-Type": "application/json",
+		  },
+		  body: JSON.stringify({
+			title: title,
+			price: price,
+			description: description,
+			category: category,
+			image: image,
+		  }),
+		});
+			await response.json();
+	  };
+
 	useEffect(() => {
 		fetchSauces();
 		fetchItems();
@@ -47,10 +71,60 @@ export const App = () => {
 	  <h1>Mario Test</h1>
 	  <h1>Francis</h1>
 
+			<div>
 			<h2>All things 🔥</h2>
-			<SaucesList sauces={sauces} />
-			<ItemsList items={items} />
+			{isAddingItem ? (
+          <div>
+            <form onSubmit={handleSubmit}>
+              <h4>Add an Item</h4>
+              <input
+                type="text"
+                placeholder="Item Title"
+                aria-label="item title"
+                onChange={(e) => setTitle(e.target.value)}
+                value={title}
+              />
+              <input
+                type="text"
+                placeholder="Item Price"
+                aria-label="item price"
+                onChange={(e) => setPrice(e.target.value)}
+                value={price}
+              />
+              <input
+                type="text"
+                placeholder="Item Description"
+                aria-label="item description"
+                onChange={(e) => setDescription(e.target.value)}
+                value={description}
+              />
+              <input
+                type="text"
+                placeholder="Item Category"
+                aria-label="item category"
+                onChange={(e) => setCategory(e.target.value)}
+                value={category}
+              />
+              <input
+                type="text"
+                placeholder="ImageURL"
+                aria-label="image"
+                onChange={(e) => setImage(e.target.value)}
+                value={image}
+              />
+             	 <button type="submit">Submit Item</button>
+			  </form>
+			</div>
+			) : (
+				<ItemsList items = {items} setItems = {setItems}/>
+			)}
+		
+			{/* <SaucesList sauces={sauces} /> */}
+			{/* <ItemsList items={items} /> */}
 
+			<button onClick={() => setIsAddingItem(!isAddingItem)}>Add Item</button>
+
+			</div>
 		</main>
 	)
 }
