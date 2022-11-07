@@ -10,9 +10,9 @@ export const Item = ({item}) => {
 
 		const res = await fetch(`${apiURL}/items/${target}`);
 		const data = await res.json();
-		console.log(data);
+		//console.log(data);
 		setIsShown(!isShown);
-		console.log("hihihi");
+		//console.log("hihihi");
 	}
 
 
