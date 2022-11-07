@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SaucesList } from './SaucesList';
 import { ItemsList } from './ItemsList';
+import "../../style.css";
 
 
 
@@ -65,12 +66,6 @@ export const App = () => {
 
 	return (
 		<main>	
-      <h1>Sauce Store</h1>
-
-	  <h1>Jared Branch</h1>
-	  <h1>Mario Test</h1>
-	  <h1>Francis</h1>
-
 			<div>
 			<h2>All things 🔥</h2>
 
@@ -124,8 +119,7 @@ export const App = () => {
 			{/* <SaucesList sauces={sauces} /> */}
 			{/* <ItemsList items={items} /> */}
 
-			<button onClick={() => setIsAddingItem(!isAddingItem)}>Add Item</button>
-
+			<button className="button1" onClick={() => setIsAddingItem(!isAddingItem)}>Add Item</button>
 
 			</div>
 		</main>
