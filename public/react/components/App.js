@@ -41,8 +41,7 @@ export const App = () => {
 		}
 	}
 
-	const handleSubmit = async (e) => {
-		console.log(e);
+	const handleSubmit = async () => {
 		const response = await fetch(`${apiURL}/items`, {
 		  method: "POST",
 		  headers: {
@@ -59,22 +58,6 @@ export const App = () => {
 			await response.json();
 	  };
 
-	  const updateItem = async (target) => {
-		const res = await fetch (`${apiURL}/items/${target}`, {
-		  method: "PATCH",
-		  headers: {
-			"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-			title: title,
-			price: price,
-			description: description,
-			category: category,
-			image: image,
-			}),
-		  });
-			await response.json();
-		  };
 
 	useEffect(() => {
 		// fetchSauces();
