@@ -15,6 +15,13 @@ export const Item = ({item}) => {
 		//console.log("hihihi");
 	}
 
+  const deleteItem = async (target) => {
+    const res = await fetch (`${apiURL}/items/${target}`, {
+      method: "DELETE"
+    });
+    await res.json();
+  }
+
 
   return <>
     <h3 onClick = {() => handleClick(item.id)}>{item.title}</h3>
