@@ -31,7 +31,7 @@ router.post("/", async (req,res) => {
 
 // DELETE /item
 
-router.delete("/", async (req,res) => {
+router.delete("/:id", async (req,res) => {
   const itemToDel = await Item.destroy({
     where: {
       id: req.params.id,

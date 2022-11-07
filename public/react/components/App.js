@@ -19,16 +19,16 @@ export const App = () => {
 	const  [category,setCategory] = useState("");
 	const  [image,setImage] = useState("");
 
-	async function fetchSauces(){
-		try {
-			const response = await fetch(`${apiURL}/sauces`);
-			const saucesData = await response.json();
+	// async function fetchSauces(){
+	// 	try {
+	// 		const response = await fetch(`${apiURL}/sauces`);
+	// 		const saucesData = await response.json();
 			
-			setSauces(saucesData);
-		} catch (err) {
-			console.log("Oh no an error! ", err)
-		}
-	}
+	// 		setSauces(saucesData);
+	// 	} catch (err) {
+	// 		console.log("Oh no an error! ", err)
+	// 	}
+	// }
 
 	async function fetchItems(){
 		try {
@@ -60,7 +60,7 @@ export const App = () => {
 	  };
 
 	useEffect(() => {
-		fetchSauces();
+		// fetchSauces();
 		fetchItems();
 	}, []);
 
