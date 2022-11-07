@@ -32,7 +32,8 @@ export const Item = ({item}) => {
           <p><b>Description:</b> {item.description}</p>
           <p><b>category:</b> {item.category}</p>
           <img style={{ width: 200, height: 300 }} src={item.image} alt={item.title} />
-          <p><button onClick = {() => handleClick(item.id)}>Back to Item List</button></p>
+          <button className="deleteButton" >DELETE</button>
+          <button className="backButton" onClick = {() => handleClick(item.id)}>Back to Item List</button>
     </>	
 	)}
   </>
