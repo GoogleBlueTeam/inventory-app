@@ -41,16 +41,16 @@ export const Item = ({item, setItems}) => {
 
   const updateItem = async (target) => {
 		const res = await fetch (`${apiURL}/items/${target}`, {
-		  method: "PATCH",
+		  method: "PUT",
 		  headers: {
 			"Content-Type": "application/json",
 			},
 			body: JSON.stringify({
-			title: title,
-			price: price,
-			description: description,
-			category: category,
-			image: image,
+        title: title,
+        price: price,
+        description: description,
+        category: category,
+        image: image,
 			}),
 		  });
 			await response.json();
@@ -103,8 +103,10 @@ export const Item = ({item, setItems}) => {
                 onChange={(e) => setImage(e.target.value)}
                 value={image}
               />
+              <button  onClick = {() => updateItem(item.id)}>Modify Item</button>
           </form>
           <button className="deleteButton" onClick = {() => deleteItem(item.id)}>DELETE</button>
+
           <button className="backButton" onClick = {() => handleClick(item.id)}>Back to Item List</button>
     </>	
 	)}
