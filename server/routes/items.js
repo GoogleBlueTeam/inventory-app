@@ -43,9 +43,13 @@ router.delete("/:id", async (req,res) => {
 
 // UPDATE /item
 
-router.put("/", async (req,res) => {
-  const itemToUpdate = await Item.update(req.body)
-  res.json(await Item.findByPk())
+router.put("/:id", async (req,res) => {
+  const itemToUpdate = await Item.update(req.body, {
+    where: {
+        id: req.params.id
+    }
+  })
+  res.json(await Item.findAll())
 })
 module.exports = router;
 
