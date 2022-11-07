@@ -24,10 +24,28 @@ router.get("/:itemId", async (req, res, next) => {
 });
 
 // ADD /item
-router.post("/", async (req,res,) => {
+router.post("/", async (req,res) => {
   const itemToAdd = await Item.create(req.body)
   res.json(await Item.findAll());
 })
 
+// DELETE /item
+
+router.delete("/", async (req,res) => {
+  const itemToDel = await Item.destroy({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.json(await Item.findAll());
+});
+
+
+// UPDATE /item
+
+router.put("/", async (req,res) => {
+  const itemToUpdate = await Item.update(req.body)
+  res.json(await Item.findByPk())
+})
 module.exports = router;
 
