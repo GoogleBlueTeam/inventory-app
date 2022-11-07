@@ -74,41 +74,41 @@ export const App = () => {
           <div>
             <form onSubmit={handleSubmit}>
               <h4>Add an Item</h4>
-              <input
+              <p><input
                 type="text"
                 placeholder="Item Title"
                 aria-label="item title"
                 onChange={(e) => setTitle(e.target.value)}
                 value={title}
-              />
-              <input
+              /></p>
+              <p><input
                 type="text"
                 placeholder="Item Price"
                 aria-label="item price"
                 onChange={(e) => setPrice(e.target.value)}
                 value={price}
-              />
-              <input
+              /></p>
+              <p><input
                 type="text"
                 placeholder="Item Description"
                 aria-label="item description"
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
-              />
-              <input
+              /></p>
+              <p><input
                 type="text"
                 placeholder="Item Category"
                 aria-label="item category"
                 onChange={(e) => setCategory(e.target.value)}
                 value={category}
-              />
-              <input
+              /></p>
+              <p><input
                 type="text"
                 placeholder="ImageURL"
                 aria-label="image"
                 onChange={(e) => setImage(e.target.value)}
                 value={image}
-              />
+              /></p>
              	 <button type="submit">Submit Item</button>
 			  </form>
 			</div>
