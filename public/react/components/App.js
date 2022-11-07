@@ -73,6 +73,8 @@ export const App = () => {
 
 			<div>
 			<h2>All things 🔥</h2>
+
+
 			{isAddingItem ? (
           <div>
             <form onSubmit={handleSubmit}>
@@ -123,6 +125,7 @@ export const App = () => {
 			{/* <ItemsList items={items} /> */}
 
 			<button onClick={() => setIsAddingItem(!isAddingItem)}>Add Item</button>
+
 
 			</div>
 		</main>
