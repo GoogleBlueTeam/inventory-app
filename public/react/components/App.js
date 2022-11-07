@@ -48,7 +48,7 @@ export const App = () => {
 	  <h1>Francis</h1>
 
 			<h2>All things 🔥</h2>
-			<SaucesList sauces={sauces} />
+			{/* <SaucesList sauces={sauces} /> */}
 			<ItemsList items={items} />
 
 		</main>
