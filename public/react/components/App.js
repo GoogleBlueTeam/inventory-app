@@ -116,7 +116,7 @@ export const App = () => {
 				<ItemsList items = {items} setItems = {setItems}/>
 			)}
 
-			<button className="button1" onClick={() => setIsAddingItem(!isAddingItem)}>Add Item</button>
+			<button className="button1" onClick={() => setIsAddingItem(!isAddingItem)}>+</button>
 
 			</div>
 		</main>
