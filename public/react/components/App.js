@@ -67,7 +67,7 @@ export const App = () => {
 	return (
 		<main>	
 			<div className="card">
-			<h2>All things 🔥</h2>
+			<h2>🔥Blue Team Inventory App 🔥</h2>
 
 
 			{isAddingItem ? (
