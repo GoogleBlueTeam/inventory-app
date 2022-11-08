@@ -1,5 +1,5 @@
-# inventory-app
-A full-stack application to track your inventory
+Blue team's Inventory App!
+This is a full-stack application that tracks items, with the feature to add and update items!
 
 ## Getting Started
 
