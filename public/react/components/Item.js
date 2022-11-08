@@ -66,7 +66,7 @@ export const Item = ({item, setItems}) => {
           <p><b>Price:</b> {item.price}</p>
           <p><b>Description:</b> {item.description}</p>
           <p><b>category:</b> {item.category}</p>
-          <img style={{ width: 200, height: 300 }} src={item.image} alt={item.title} />
+          <img className="img" style={{ width: 300, height: 400 }} src={item.image} alt={item.title} />
           <form>
           <p><input
                 type="text"
