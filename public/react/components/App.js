@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { SaucesList } from './SaucesList';
 import { ItemsList } from './ItemsList';
 import "../../style.css";
 
@@ -9,8 +8,6 @@ import "../../style.css";
 import apiURL from '../api';
 
 export const App = () => {
-
-	// const [sauces, setSauces] = useState([]);
 	const [items, setItems] = useState([]);
 	const [isAddingItem, setIsAddingItem] = useState(false);
 	const  [title,setTitle] = useState("");
@@ -19,16 +16,8 @@ export const App = () => {
 	const  [category,setCategory] = useState("");
 	const  [image,setImage] = useState("");
 
-	// async function fetchSauces(){
-	// 	try {
-	// 		const response = await fetch(`${apiURL}/sauces`);
-	// 		const saucesData = await response.json();
-			
-	// 		setSauces(saucesData);
-	// 	} catch (err) {
-	// 		console.log("Oh no an error! ", err)
-	// 	}
-	// }
+	const [hotsauce, setHotsauce] = useState([]);
+	const [hotsauceToggle, setHotsauceToggle] = useState(false);
 
 	async function fetchItems(){
 		try {
@@ -58,14 +47,41 @@ export const App = () => {
 			await response.json();
 	  };
 
+	const getHotsauce = async (city) => {
+		try {
+			const apiKey = "d6e7449e18770c0b5733b2d810c03137"
+			const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`);
+			const data = await response.json();
+			console.log("hihi")
+			setHotsauce(data);
+			console.log(data);
+			setHotsauceToggle(!hotsauceToggle);
+
+		} catch (err) {
+			console.log("Oh no an error! ", err)
+	}
+	}
+
 
 	useEffect(() => {
-		// fetchSauces();
 		fetchItems();
 	}, []);
 
 	return (
 		<main>	
+		<div className="main" >
+			<div className="smallcard" ><b>It's hot sauce time!</b>
+				<img 
+				src="https://64.media.tumblr.com/1564fcf74adc3fe6542c34b6a1f05de1/tumblr_na9lew0bNS1tha1vgo1_r1_250.gif" 
+				onClick = {() => getHotsauce("austin")} ></img>
+				{hotsauceToggle && (
+				<>
+					<p>City: {hotsauce.name}</p>
+					<p>Temperture: {hotsauce.main.temp}</p>
+				</>
+				)}
+
+			</div>
 			<div className="card">
 			<h2>🔥Blue Team Inventory App 🔥</h2>
 
@@ -118,6 +134,7 @@ export const App = () => {
 
 			<button className="button1" onClick={() => setIsAddingItem(!isAddingItem)}>+</button>
 
+			</div>
 			</div>
 		</main>
 	)
