@@ -103,7 +103,7 @@ export const Item = ({item, setItems}) => {
                 onChange={(e) => setImage(e.target.value)}
                 value={image}
               /></p>
-              <button  onClick = {() => updateItem(item.id)}>Modify Item</button>
+              <button  className="modifyButton" onClick = {() => updateItem(item.id)}>Modify Item</button>
           </form>
           <button className="deleteButton" onClick = {() => deleteItem(item.id)}>DELETE</button>
 

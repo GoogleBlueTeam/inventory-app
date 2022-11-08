@@ -28,9 +28,16 @@ body {
 }
 
 .deleteButton:hover {
+  border-radius: 30px;
   background: lightpink;
 }
 
 .backButton:hover {
+  border-radius: 30px;
   background: lightblue;
+}
+
+.modifyButton:hover {
+  border-radius: 30px;
+  background: lightgoldenrodyellow;
 }
