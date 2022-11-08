@@ -72,6 +72,7 @@ export const App = () => {
 		<main>	
 		<div className="main" >
 			<div className="smallcard" ><b>It's hot sauce time!</b>
+				<p><b>Click Me!!!</b></p>
 				<img 
 				src="https://64.media.tumblr.com/1564fcf74adc3fe6542c34b6a1f05de1/tumblr_na9lew0bNS1tha1vgo1_r1_250.gif" 
 				 onClick = {() => setSearchBar(!searchBar) }></img>
