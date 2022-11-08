@@ -25,9 +25,7 @@ export const Item = ({item, setItems}) => {
 
 		const res = await fetch(`${apiURL}/items/${target}`);
 		const data = await res.json();
-		//console.log(data);
 		setIsShown(!isShown);
-		//console.log("hihihi");
 	}
 
   const deleteItem = async (target) => {
@@ -60,6 +58,7 @@ export const Item = ({item, setItems}) => {
 
   return <>
     <h3 className="title" onClick = {() => handleClick(item.id)}>{item.title}</h3>
+  
 
     {isShown && (
     <>
