@@ -9,7 +9,12 @@ This is a full-stack application that tracks items, with the feature to add and 
 4. In a seperate terminal, `npm run client-dev`
 
 
+#Postman testing
+
+Testing delete route
 ![](DELETE-request-deleting-item.png)
+
+
 ![](GET-request-all-items.png)
 ![](GET-request-to-localhost-3000.png)
 ![](POST-request-adding-a-new-item.png)
