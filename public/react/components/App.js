@@ -16,8 +16,11 @@ export const App = () => {
 	const  [category,setCategory] = useState("");
 	const  [image,setImage] = useState("");
 
+
+	const [searchBar, setSearchBar] = useState(false);
+	const [searchText, setSearchText] = useState("");
 	const [hotsauce, setHotsauce] = useState([]);
-	const [hotsauceToggle, setHotsauceToggle] = useState(false);
+	const [showWeather, setShowWeather] = useState(false);
 
 	async function fetchItems(){
 		try {
@@ -52,17 +55,16 @@ export const App = () => {
 			const apiKey = "d6e7449e18770c0b5733b2d810c03137"
 			const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`);
 			const data = await response.json();
-			console.log("hihi")
 			setHotsauce(data);
 			console.log(data);
-			setHotsauceToggle(!hotsauceToggle);
+			setShowWeather(true);
 
 		} catch (err) {
 			console.log("Oh no an error! ", err)
 	}
 	}
 
-
+	// onClick = {() => getHotsauce("austin")}
 	useEffect(() => {
 		fetchItems();
 	}, []);
@@ -73,8 +75,12 @@ export const App = () => {
 			<div className="smallcard" ><b>It's hot sauce time!</b>
 				<img 
 				src="https://64.media.tumblr.com/1564fcf74adc3fe6542c34b6a1f05de1/tumblr_na9lew0bNS1tha1vgo1_r1_250.gif" 
-				onClick = {() => getHotsauce("austin")} ></img>
-				{hotsauceToggle && (
+				 onClick = {() => setSearchBar(!searchBar) }></img>
+				{searchBar && (<>
+						<input type="text" placeholder='search a city' onChange={(e) => setSearchText(e.target.value)} value={searchText}></input>
+						<button  className="modifyButton" onClick = {() => getHotsauce(searchText)}>Modify Item</button>
+				</>)}
+				{showWeather && searchBar && (
 				<>
 					<p>City: {hotsauce.name}</p>
 					<p>Temperture: {hotsauce.main.temp}</p>
