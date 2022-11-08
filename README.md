@@ -10,3 +10,7 @@ This is a full-stack application that tracks items, with the feature to add and 
 
 
 ![](DELETE-request-deleting-item.png)
+![](GET-request-all-items.png)
+![](GET-request-to-localhost-3000.png)
+![](POST-request-adding-a-new-item.png)
+![](PUT-request-updating-item.png)
