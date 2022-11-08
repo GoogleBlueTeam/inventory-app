@@ -92,7 +92,7 @@ export const App = () => {
 
 			</div>
 			<div className="card">
-			<h2>🔥Blue Team Inventory App 🔥</h2>
+			<h2>🔥Blue Man Group's Inventory App 🔥</h2>
 
 
 			{isAddingItem ? (
