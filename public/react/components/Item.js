@@ -59,7 +59,7 @@ export const Item = ({item, setItems}) => {
 
 
   return <>
-    <h3 onClick = {() => handleClick(item.id)}>{item.title}</h3>
+    <h3 className="title" onClick = {() => handleClick(item.id)}>{item.title}</h3>
 
     {isShown && (
     <>
@@ -103,7 +103,7 @@ export const Item = ({item, setItems}) => {
                 onChange={(e) => setImage(e.target.value)}
                 value={image}
               /></p>
-              <button  onClick = {() => updateItem(item.id)}>Modify Item</button>
+              <button  className="modifyButton" onClick = {() => updateItem(item.id)}>Modify Item</button>
           </form>
           <button className="deleteButton" onClick = {() => deleteItem(item.id)}>DELETE</button>
 

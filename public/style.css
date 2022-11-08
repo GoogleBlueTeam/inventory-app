@@ -1,18 +1,47 @@
-* {
+body {
   margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
-  background-color: rgb(223, 223, 223);
+  background-color: #60a9ff;
+  background-image: url("https://source.unsplash.com/1920x1080/?amsterdam");
+
+}
+
+.card {
+  background-color: #000000d0;
+  color:white;
+  padding: 2em 0em;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 1500px;
+  margin: 1em;
+  text-align: center;
 }
 
 
+
 .button1:hover {
+  border-radius: 30px;
   background: lightgreen;
 }
 
 .deleteButton:hover {
+  border-radius: 30px;
   background: lightpink;
 }
 
 .backButton:hover {
+  border-radius: 30px;
   background: lightblue;
+}
+
+.modifyButton:hover {
+  border-radius: 30px;
+  background: lightgoldenrodyellow;
+}
+
+.title:hover {
+  background: lightgray;
 }

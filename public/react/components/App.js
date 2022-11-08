@@ -66,8 +66,8 @@ export const App = () => {
 
 	return (
 		<main>	
-			<div>
-			<h2>All things 🔥</h2>
+			<div className="card">
+			<h2>🔥Blue Team Inventory App 🔥</h2>
 
 
 			{isAddingItem ? (
@@ -115,9 +115,6 @@ export const App = () => {
 			) : (
 				<ItemsList items = {items} setItems = {setItems}/>
 			)}
-		
-			{/* <SaucesList sauces={sauces} /> */}
-			{/* <ItemsList items={items} /> */}
 
 			<button className="button1" onClick={() => setIsAddingItem(!isAddingItem)}>Add Item</button>
 
