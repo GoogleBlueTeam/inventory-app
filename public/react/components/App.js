@@ -56,7 +56,7 @@ export const App = () => {
 			const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`);
 			const data = await response.json();
 			setHotsauce(data);
-			console.log(data);
+			console.log(data.weather[0]);
 			setShowWeather(true);
 
 		} catch (err) {
@@ -64,7 +64,6 @@ export const App = () => {
 	}
 	}
 
-	// onClick = {() => getHotsauce("austin")}
 	useEffect(() => {
 		fetchItems();
 	}, []);
@@ -77,13 +76,16 @@ export const App = () => {
 				src="https://64.media.tumblr.com/1564fcf74adc3fe6542c34b6a1f05de1/tumblr_na9lew0bNS1tha1vgo1_r1_250.gif" 
 				 onClick = {() => setSearchBar(!searchBar) }></img>
 				{searchBar && (<>
-						<input className="search-bar" type="text" placeholder='search a city' onChange={(e) => setSearchText(e.target.value)} value={searchText}></input>
-						<button  className="modifyButton" onClick = {() => getHotsauce(searchText)}>Modify Item</button>
+						<input className="search-bar" type="text" placeholder='search a city' 
+						onChange={(e) => setSearchText(e.target.value)} value={searchText}></input>
+
+						<button  className="button1" onClick = {() => getHotsauce(searchText)}>Search</button>
 				</>)}
 				{showWeather && searchBar && (
 				<>
-					<p>City: {hotsauce.name}</p>
-					<p>Temperture: {hotsauce.main.temp}</p>
+					<p><b>City:</b> {hotsauce.name}</p>
+					<img src={`https://openweathermap.org/img/wn/${hotsauce.weather[0].icon}@2x.png`} ></img>
+					<p><b>Temperture:</b> {hotsauce.main.temp}</p>
 				</>
 				)}
 
