@@ -1,6 +1,8 @@
 Blue Man Group (aka Jared, Mario, Francis)'s Inventory App!
 This is a full-stack application that tracks items, with the feature to add and update items!
 
+https://bluemangroup.up.railway.app/
+
 ## Getting Started
 
 1. `npm install`
